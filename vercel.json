@@ -1,0 +1,20 @@
+{
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet .",
+  "env": {
+    "NODE_ENV": "production",
+    "SOLANA_RPC_URL": "https://api.devnet.solana.com",
+    "NEXT_PUBLIC_API_URL": "https://dewatt.vercel.app"
+  },
+  "build": {
+    "env": {
+      "MONGODB_URI": "@mongodb_uri",
+      "DB_NAME": "@db_name",
+      "SOLANA_RPC_URL": "@solana_rpc_url"
+    }
+  }
+}
