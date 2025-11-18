@@ -6,7 +6,7 @@ if (!process.env.MONGODB_URI) {
   console.error('Please copy .env.example to .env.local and configure your MongoDB connection.');
 }
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://username:password@cluster.mongodb.net';
 const DB_NAME = process.env.DB_NAME || 'dewatt';
 
 // Connection pool configuration

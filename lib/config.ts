@@ -53,7 +53,7 @@ function loadConfig(): AppConfig {
 
   const config: AppConfig = {
     // Database
-    mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017',
+    mongodbUri: process.env.MONGODB_URI || 'mongodb+srv://username:password@cluster.mongodb.net',
     dbName: process.env.DB_NAME || 'dewatt',
 
     // Solana
