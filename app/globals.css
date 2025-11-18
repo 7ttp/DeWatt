@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text selection on double tap */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Smooth scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better input focus */
+  input:focus, textarea:focus {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+@layer base {
+  
+  :root, .dark {
+    --background: #000;
+    --foreground: #fff;
+    --card: #1c1917;
+    --card-foreground: #f2f2f2;
+    --popover: #171717;
+    --popover-foreground: #f2f2f2;
+    --primary: #22c55e;
+    --primary-foreground: #052e16;
+    --secondary: #27272a;
+    --secondary-foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a1a1aa;
+    --accent: #292524;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fef2f2;
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #15803d;
+    --radius: 1rem;
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* iOS-style smooth scrolling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-white\/10 {
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  }
+  
+  .scrollbar-track-transparent {
+    scrollbar-color: transparent transparent;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Shimmer animation for progress bars */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  /* Smooth fade in animation */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-in {
+    animation: fade-in 0.2s ease-out;
+  }
+
+  /* Zoom in animation */
+  @keyframes zoom-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .zoom-in-95 {
+    animation: zoom-in 0.3s ease-out;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* iOS-style card hover */
+  .card-hover {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-hover:active {
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, select, textarea {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove default focus outline and add custom one */
+*:focus-visible {
+  outline: 2px solid rgba(34, 197, 94, 0.5);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Custom Wallet Button Styling */
+.wallet-button-custom {
+  position: relative !important;
+  z-index: 10000 !important;
+}
+
+.wallet-button-custom * {
+  z-index: 10000 !important;
+}
+
+.wallet-button-custom button {
+  position: relative !important;
+  z-index: 10000 !important;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  height: 40px !important;
+}
+
+/* Mobile wallet button adjustments */
+@media (max-width: 768px) {
+  .wallet-button-custom button {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    height: 36px !important;
+    min-width: auto !important;
+  }
+  
+  .wallet-button-custom button span {
+    display: inline-block !important;
+    max-width: 80px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+}
+
+.wallet-button-custom button:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+.wallet-button-custom button:active {
+  transform: translateY(0) !important;
+}
+
+/* Wallet adapter dropdown */
+.wallet-adapter-dropdown {
+  position: relative !important;
+  z-index: 10000 !important;
+}
+
+.wallet-adapter-dropdown-list {
+  position: absolute !important;
+  z-index: 10000 !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  z-index: 10000 !important;
+}
+
+/* Wallet adapter modal styling */
+.wallet-adapter-modal-wrapper {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  z-index: 10000 !important;
+}
+
+.wallet-adapter-modal {
+  z-index: 10000 !important;
+}
+
+.wallet-adapter-modal {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+.wallet-adapter-modal-title {
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+.wallet-adapter-button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  transition: all 0.2s !important;
+}
+
+.wallet-adapter-button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Range Slider Styling */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+input[type="range"].slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+input[type="range"].slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.6);
+}
+
+input[type="range"].slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.6);
+}
+
+/* Touch-friendly swipe gesture */
+.touch-none {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+/* Prevent text selection during swipe */
+#swipe-container * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
