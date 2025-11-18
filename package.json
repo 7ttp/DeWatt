@@ -24,6 +24,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
     "preinstall": "npx only-allow pnpm",
     "init-db": "node scripts/init-db.js"
   },
