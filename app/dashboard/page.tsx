@@ -7,6 +7,7 @@ import { Zap, MapPin, ChevronRight, Check, ExternalLink, ArrowRight } from 'luci
 import Link from 'next/link';
 import { AlertModal } from '@/components/Modal/Modal';
 import { useAlert } from '@/hooks/useModal';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 const DashboardMap = dynamic(() => import('@/components/Dashboard/DashboardMap'), {
   ssr: false,
@@ -98,6 +99,7 @@ function BookingModal({ station, wallet, onClose }: any) {
   const [swipeProgress, setSwipeProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const { alert, showAlert, closeAlert } = useAlert();
+  const d = useWallet();
 
   const totalCost = (kwh * station.meanPrice).toFixed(2);
 
@@ -254,7 +256,9 @@ function BookingModal({ station, wallet, onClose }: any) {
             </div>
 
             {/* Swipe to Continue */}
-            <div 
+            {d.connected ? 
+            <>
+             <div 
               id="swipe-container"
               className="relative h-16 bg-white/5 rounded-2xl border border-white/10 overflow-hidden cursor-grab active:cursor-grabbing select-none touch-none"
               onMouseDown={handleSwipeStart}
@@ -305,6 +309,12 @@ function BookingModal({ station, wallet, onClose }: any) {
             <p className="text-xs text-gray-500 text-center mt-2">
               Drag the slider to the right to confirm your booking
             </p>
+            </> 
+            :
+            <div className="wallet-button-custom" suppressHydrationWarning>
+                  <WalletMultiButton />
+            </div>
+            }
           </div>
         )}
 
