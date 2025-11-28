@@ -266,7 +266,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 ml-0">
         {/* Header */}
-        <header className="h-14 md:h-16 bg-gradient-to-b from-gray-900/50 to-transparent backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-3 md:px-6 relative flex-shrink-0 z-[10000]">
+        <header className="h-14 md:h-16 bg-gradient-to-b from-gray-900/50 to-transparent backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-3 md:px-6 relative flex-shrink-0 z-[50]">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent pointer-events-none" />
           
           {/* Balance Cards - Left Side */}
@@ -307,7 +307,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 {/* Notification Bell */}
                 <button
                   onClick={() => setShowNotifications(!showNotifications)}
-                  className="relative w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 flex-shrink-0"
+                  className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 flex-shrink-0"
                 >
                   <Bell size={14} className="text-gray-400 md:w-[18px] md:h-[18px]" />
                   {notifications.length > 0 && (

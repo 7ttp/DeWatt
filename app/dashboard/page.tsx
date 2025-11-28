@@ -99,7 +99,7 @@ function BookingModal({ station, wallet, onClose }: any) {
   const [swipeProgress, setSwipeProgress] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const { alert, showAlert, closeAlert } = useAlert();
-  const d = useWallet();
+  const isWallet = useWallet();
 
   const totalCost = (kwh * station.meanPrice).toFixed(2);
 
@@ -171,7 +171,7 @@ function BookingModal({ station, wallet, onClose }: any) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/95 backdrop-blur-2xl flex items-center justify-center z-[100] p-4" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-xl flex items-center justify-center z-[100] p-4" onClick={onClose}>
       <div className="bg-black border border-green-500/20 rounded-3xl max-w-md w-full shadow-2xl shadow-green-500/10 overflow-hidden" onClick={(e) => e.stopPropagation()}>
         
         {/* Details Step */}
@@ -256,7 +256,7 @@ function BookingModal({ station, wallet, onClose }: any) {
             </div>
 
             {/* Swipe to Continue */}
-            {d.connected ? 
+            {isWallet.connected ? 
             <>
              <div 
               id="swipe-container"
