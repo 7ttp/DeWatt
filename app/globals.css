@@ -211,6 +211,9 @@ button, a, input, select, textarea {
   box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2) !important;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   height: 40px !important;
+  width: 100%;
+  flex: auto;
+  justify-content: center;
 }
 
 /* Mobile wallet button adjustments */
@@ -245,6 +248,7 @@ button, a, input, select, textarea {
 .wallet-adapter-dropdown {
   position: relative !important;
   z-index: 10000 !important;
+  width: 100%;
 }
 
 .wallet-adapter-dropdown-list {
