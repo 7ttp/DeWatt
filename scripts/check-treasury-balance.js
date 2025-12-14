@@ -59,7 +59,7 @@ async function checkBalance() {
       console.log('Fund at: https://faucet.solana.com');
     } else {
       console.log('\n✅ Treasury is funded and ready!');
-      console.log(`📊 Can send ~${Math.floor(solBalance / 0.000005)} transactions`);
+      console.log(`📊 Can send ~${Math.floor(solBalance / 0.000005)} txs`);
     }
 
   } catch (error) {
